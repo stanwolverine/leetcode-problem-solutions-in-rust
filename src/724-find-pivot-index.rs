@@ -19,6 +19,10 @@ impl Solution {
             right_sum -= nums[i];
             
             if (right_sum == left_sum) {
+                // i32::try_from(i) -> try converting `i` i.e. `usize` into `i32` type safely
+                //                      it will return Result<T, E>
+                // ok()             -> if error occurred, return Option::None; else return Option::Some<T>
+                // unwrap()         -> Panic if Option is Option::None, otherwise return T;
                 return i32::try_from(i).ok().unwrap();
             }
         }
